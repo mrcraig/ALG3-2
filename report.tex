@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\title{Algorithmics 3 Assessed Exercise\\ \vspace{4mm} 
+Status and Implementation Reports}
+
+\author{\bf Craig Cuthbertson\\ \bf 1002386}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Status report}
+
+I believe both implementations of the program are working as expected. I base my conclusion on the fact that I was able to manually calculate the shortest path for the provided data6.txt dataset, and both implementations match that path exactly. The programs do differ on a few data sets I have tried, however, I believe this may be down to the way each program deals with edges of identical weights.
+
+\section*{Implementation report}
+
+\begin{itemize}
+\item[(a)] 
+Djikstra's algorithm was implemented by allocating the most efficient costs and the predecessors which made those costs possible, up until the target node. Once the target node was reached, the solution was backtracked from the final node, adding the predecessors of each node until the start node was reached. This produced a list of the shortest path as defined by dijkstras algorithm. Efficiency was improved by keeping variables in the local scope where possible and attempting not to iterate over the list more times than need be. 
+\item[(b)]
+The backtrack algorithm was implemented using the provided pseudocode description in the assessed exercise handout. The algorithm works by calculating every possible path, and overwriting a "best path" list if the distance of the currently worked out path is less than the distance of the best path. This will ensure the shortest possible path is found. Efficiency in this implementation was of paramount importance. I improved efficiency by keeping frequently used values in their own variables (as opposed to looking up the value every call), and storing each lists distance as its own variable so as not to have to calculate it every time from the list. The lists themselves I decided to keep as references to the vertex number as opposed to Nodes in a bid to improve efficiency.
+\end{itemize}
+
+\section*{Empirical results}
+
+Summarise the running times of your two programs on the data sets provided. If the program fails to terminate in, say, two minutes, simply report non-termination. 
+
+\end{document}
