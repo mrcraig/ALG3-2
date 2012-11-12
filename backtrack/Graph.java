@@ -39,6 +39,7 @@ public class Graph {
 	}
 	
 	public void printBest(){
+		System.out.println("The shortest distance from " + bestPath.getFirst() + " to " + bestPath.getLast() + " is " + bestWeight);
 		for(int i=0;i<bestPath.size();i++){
 			System.out.print(bestPath.get(i) + " ");
 		}
